@@ -10,7 +10,7 @@ and [this awesome post](https://forum.vivaldi.net/topic/10549/modding-vivaldi)
 for more information. 
 
 In short, to enable modifications in Vivaldi:
-- visit the *[vivaldi://experiments](vivaldi://experiments)* and enabling "Allow for using CSS modifications"
+- visit the *[vivaldi://experiments](vivaldi://experiments)* and enable "Allow for using CSS modifications"
 - set the directory for your styles in Settings > Appearance > Custom UI Modifications
 - create a css file of your own or try some of the styles I've made (more details in files)
 - restart Vivaldi
