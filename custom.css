@@ -1,0 +1,242 @@
+/*///////////////////////////////////////////////////////////////////////
+
+	▒▓  Minimal Vivaldi Browser CSS Mod  ▓▒
+
+Author: Shane Burns (https://github.com/shaneburns)
+Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
+	created with the Gradient theme (https://themes.vivaldi.net/themes/V6kJNYnzvWX);
+	all default themes and multiple custom themes have also been tested.
+	This was a personal project that I decided to share.  I hope you
+	enjoy it, and more so I hope it inspires you to create your own
+	customizations.  If you do, please share them with the community!
+
+	If you're curious how to start modding Vivaldi, check out
+	the Vivaldi forums (https://forum.vivaldi.net/category/52/modifications)
+	and the Vivaldi Wiki (https://forum.vivaldi.net/topic/10549/modding-vivaldi)
+	for more information. 
+	In short, to enable custom CSS:
+	- visit ** vivaldi://experiments and enabling "Allow for using CSS modifications"
+	- set the directory for your styles in Settings > Appearance > Custom UI Modifications
+	- create a css file, add some styles, and restart Vivaldi
+
+	Also, this link will allow you to open DevTools for the browser UI:
+	** vivaldi://inspect/#apps
+///////////////////////////////////////////////////////////////////////*/
+
+:root{
+	--ui-opacity: .65;
+	--ui-spacing: 5px;
+	--ui-border-radius: 10px;
+
+	--webview-opacity: 1;
+	--address-border-radius: var(--ui-border-radius);
+
+	--panel-border-radius: 0 10px 10px 0;
+	--panel-box-shadow: 75px 0 50px -50px #000000;
+	--panel-icons-border-radius: 10px 0 0 10px;
+
+	--tabs-border-radius: 0 10px 10px 0;
+	--tabs-margin: 0px;
+
+	--bookmarks-margin: 0px var(--ui-spacing);
+	--bookmarks-border-radius: var(--ui-border-radius);
+
+	--status-margin: 0 var(--ui-spacing) var(--ui-spacing);
+	--status-border-radius: var(--ui-border-radius);
+}
+
+/* Title Bar 
+///////////////////////////////////////////////////////////////////////*/
+#header{
+	box-shadow: none;
+}
+
+/* Address Bar 
+///////////////////////////////////////////////////////////////////////*/
+#browser #main .mainbar{
+	margin: 0px 5px;
+}
+#browser.address-top #main .mainbar{
+	margin-top: var(--ui-spacing);
+}
+#browser.address-bottom:not(.tabs-bottom,:has( footer > div.toolbar)) #main .mainbar{
+	margin-bottom: var(--ui-spacing);
+}
+#main .mainbar .toolbar{
+	border-radius: var(--address-border-radius);
+	border: none;
+}
+#browser.address-bottom:not(.bookmark-bar-bottom):has( footer > div.toolbar) #main .mainbar .toolbar{
+	--address-border-radius: 10px 10px 0px 0px;
+}
+#browser.address-bottom.bookmark-bar-bottom:has( footer > div.toolbar) #main .mainbar .toolbar,
+#browser.address-bottom.bookmark-bar-bottom.tabs-bottom #main .mainbar .toolbar{
+	--address-border-radius: 0px;
+}
+#browser.address-bottom.bookmark-bar-bottom #main .mainbar .toolbar{
+	--address-border-radius: 0px 0px 10px 10px;
+}
+#browser.bookmark-bar-top:not(.address-bottom) #main .mainbar .toolbar{
+	--address-border-radius: 10px 10px 0px 0px;
+}
+#browser.minimal-ui #main .mainbar{
+	margin: 0px;
+}
+#main .mainbar .toolbar .window-buttongroup{
+	border-radius: 10px;
+	overflow: hidden;
+}
+#main:has(.mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown) > .inner > #webview-container{
+	--webview-opacity: .2;
+}
+#main .mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown{
+	box-shadow: 0 75px 50px -50px #000000;
+}
+#browser.address-bottom #main .mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown{
+	box-shadow: 0 -75px 50px -50px #000000;
+}
+
+/* Inner bits 
+///////////////////////////////////////////////////////////////////////*/
+#browser:not(.fullscreen) #main > .inner{
+	margin: 5px;
+}
+
+/* Panel */
+#main > .inner > #panels-container{
+	border-radius: var(--panel-icons-border-radius);
+}
+#main > .inner > #panels-container.right{
+	--panel-icons-border-radius: 0 10px 10px 0;
+}
+#main > .inner > #panels-container.left:not(:has( + .tabbar-wrapper span.tabbar-wrapper)),
+#main > .inner > #panels-container.right:not(:has( + .tabbar-wrapper + #webview-container + span.tabbar-wrapper)){
+	--panel-icons-border-radius: 10px;
+}
+#browser:not(.tabs-left) #main > .inner > #panels-container.left{
+	margin-right: 5px;
+}
+#browser:not(.tabs-right) #main > .inner > #panels-container.right{
+	margin-left: 5px;
+}
+#main > .inner > #panels-container:not(.icons){
+	--panel-icons-border-radius: 0px !important;
+}
+#main > .inner > #panels-container:not(.icons) .panel-group{
+	box-shadow: var(--panel-box-shadow);
+	border-radius: var(--panel-border-radius);
+}
+#main > .inner > #panels-container.right:not(.icons) .panel-group{
+	--panel-box-shadow: -75px 0 50px -50px #000000;
+	--panel-border-radius: 10px 0 0 10px;
+}
+
+/* Tabbar */
+#main > .inner > .tabbar-wrapper{
+	overflow: hidden;
+	margin: var(--tabs-margin);
+	border-radius: var(--tabs-border-radius);
+}
+#browser.tabs-left #main > .inner > .tabbar-wrapper{
+	--tabs-margin: 0px 5px 0px 0px;
+}
+#browser.tabs-right #main > .inner > span.tabbar-wrapper{
+	--tabs-border-radius: 10px 0 0 10px;
+	--tabs-margin: 0px 0px 0px 5px;
+}
+#browser.tabs-left:has( > #main > .inner > #panels-container.right) #main > .inner > div.tabbar-wrapper,
+#browser.tabs-right:has( > #main > .inner > #panels-container.left) #main > .inner > span.tabbar-wrapper{
+	--tabs-border-radius: 10px;
+}
+#browser.tabs-right #main > .inner > div.tabbar-wrapper,
+#browser.minimal-ui #main > .inner > .tabbar-wrapper{
+	--tabs-margin: 0px;
+}
+
+/* Webview Container */
+#webview-container{
+	border-radius: 10px;
+	overflow: hidden;
+	opacity: var(--webview-opacity);
+	transition: opacity .69s ease-in-out;
+}
+#browser.fullscreen #webview-container{
+	border-radius: 0px;
+}
+#main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container{
+	--webview-opacity: .2;
+}
+#browser.minimal-ui #main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container{
+	--webview-opacity: 1;
+}
+
+/* Bookmarks bar */
+#browser .bookmark-bar{
+	margin: var(--bookmarks-margin);
+	border: none;
+	border-radius: var(--bookmarks-border-radius);
+	box-shadow: none;
+	overflow: hidden;
+}
+#browser.bookmark-bar-top .bookmark-bar{
+	--bookmarks-border-radius: 0 0 10px 10px;
+}
+#browser.bookmark-bar-bottom .bookmark-bar{
+	--bookmarks-border-radius: 10px 10px 0 0;
+}
+#browser.bookmark-bar-top.address-bottom .bookmark-bar,
+#browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
+	--bookmarks-border-radius: 10px;
+}
+#browser.bookmark-bar-top.address-bottom .bookmark-bar{
+	--bookmarks-margin: 5px 5px 0px;
+}
+#browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
+	--bookmarks-margin: 0px 5px 5px;
+}
+#browser.minimal-ui .bookmark-bar{
+	--bookmarks-margin: 0px;
+}
+
+/* Footer / Status bar 
+///////////////////////////////////////////////////////////////////////*/
+#browser footer{
+	margin: var(--status-margin);
+	border-radius: var(--status-border-radius);
+}
+#browser.bookmark-bar-bottom footer,
+#browser.address-bottom footer,
+#browser.tabs-bottom:has(.bookmark-bar-bottom,.address-bottom) footer{
+	--status-border-radius: 0 0 10px 10px;
+}
+
+:not(.tabs-bottom)#browser > footer:after{
+	display: none;
+}
+
+
+/* Misc. Aesthetics
+///////////////////////////////////////////////////////////////////////*/
+/* Passive State */
+#browser .mainbar,
+#browser .bookmark-bar,
+#browser:not(.tabs-bottom) footer{ /*  .toolbar > :not(.StatusInfo) */
+	opacity: var(--ui-opacity);
+	transition: opacity 1.38s ease-in-out;
+}
+/* #browser footer:hover{
+	background: initial;
+} */
+
+/* Hover State */
+#browser .mainbar:hover,
+#browser .bookmark-bar:hover,
+#browser .mainbar:has( > .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .observer .UrlField #urlFieldInput:focus),
+#browser .mainbar:has( > .toolbar .UrlBar-SearchField .vivaldi-searchfield:focus),
+#browser footer:hover /* .toolbar:hover > * */{
+	--ui-opacity: 1;
+}
+
+#browser #tabs-subcontainer{
+	box-shadow: none;
+}
