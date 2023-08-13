@@ -89,7 +89,7 @@ Details: This design was created while using the Gradient theme
 }
 /* TODO: account for the different states i.e. bookmark-bar-top */
 #main .mainbar .toolbar .window-buttongroup{
-	border-radius: 10px;
+	border-radius: var(--ui-rounded);
 	overflow: hidden;
 }
 #main:has(.mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown) > .inner > #webview-container{
@@ -134,7 +134,7 @@ Details: This design was created while using the Gradient theme
 }
 #main > .inner > #panels-container.right:not(.icons) .panel-group{
 	--panel-box-shadow: -75px 0 50px -50px #000000;
-	--panel-border-radius: 10px 0 0 10px;
+	--panel-border-radius: var(--ui-rounded-left);
 }
 
 /* Tabbar */
@@ -147,12 +147,12 @@ Details: This design was created while using the Gradient theme
 	--tabs-margin: 0px var(--ui-spacing) 0px 0px;
 }
 #browser.tabs-right #main > .inner > span.tabbar-wrapper{
-	--tabs-border-radius: 10px 0 0 10px;
+	--tabs-border-radius: var(--ui-rounded-left);
 	--tabs-margin: 0px 0px 0px var(--ui-spacing);
 }
 #browser.tabs-left:has( > #main > .inner > #panels-container.right) #main > .inner > div.tabbar-wrapper,
 #browser.tabs-right:has( > #main > .inner > #panels-container.left) #main > .inner > span.tabbar-wrapper{
-	--tabs-border-radius: 10px;
+	--tabs-border-radius: var(--ui-rounded);
 }
 #browser.tabs-right #main > .inner > div.tabbar-wrapper,
 #browser.minimal-ui #main > .inner > .tabbar-wrapper{
@@ -161,7 +161,7 @@ Details: This design was created while using the Gradient theme
 
 /* Webview Container */
 #webview-container{
-	border-radius: 10px;
+	border-radius: var(--ui-rounded);
 	overflow: hidden;
 	opacity: var(--webview-opacity);
 	transition: opacity .69s ease-in-out;
@@ -185,14 +185,14 @@ Details: This design was created while using the Gradient theme
 	overflow: hidden;
 }
 #browser.bookmark-bar-top .bookmark-bar{
-	--bookmarks-border-radius: 0 0 10px 10px;
+	--bookmarks-border-radius: var(--ui-rounded-bottom);
 }
 #browser.bookmark-bar-bottom .bookmark-bar{
-	--bookmarks-border-radius: 10px 10px 0 0;
+	--bookmarks-border-radius: var(--ui-rounded-top);
 }
 #browser.bookmark-bar-top.address-bottom .bookmark-bar,
 #browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
-	--bookmarks-border-radius: 10px;
+	--bookmarks-border-radius: var(--ui-rounded);
 }
 #browser.bookmark-bar-top.address-bottom .bookmark-bar{
 	--bookmarks-margin: var(--ui-spacing) var(--ui-spacing) 0px;
@@ -216,7 +216,7 @@ Details: This design was created while using the Gradient theme
 #browser.bookmark-bar-bottom footer,
 #browser.address-bottom footer,
 #browser.tabs-bottom:has(.bookmark-bar-bottom,.address-bottom) footer{
-	--status-border-radius: 0 0 10px 10px;
+	--status-border-radius: var(--ui-rounded-bottom);
 }
 
 :not(.tabs-bottom)#browser > footer:after{
