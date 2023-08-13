@@ -27,23 +27,27 @@ Details: This design was created while using the Gradient theme
 :root{
 	--ui-opacity: .65;
 	--ui-spacing: 5px;
-	--ui-border-radius: 10px;
+	--ui-rounded: 10px;
+	--ui-rounded-top: var(--ui-rounded) var(--ui-rounded) 0 0;
+	--ui-rounded-bottom: 0 0 var(--ui-rounded) var(--ui-rounded);
+	--ui-rounded-left: var(--ui-rounded) 0 0 var(--ui-rounded);
+	--ui-rounded-right: 0 var(--ui-rounded) var(--ui-rounded) 0;
 
 	--webview-opacity: 1;
-	--address-border-radius: var(--ui-border-radius);
+	--address-border-radius: var(--ui-rounded);
 
-	--panel-border-radius: 0 10px 10px 0;
+	--panel-border-radius: var(--ui-rounded-right);
 	--panel-box-shadow: 75px 0 50px -50px #000000;
-	--panel-icons-border-radius: 10px 0 0 10px;
+	--panel-icons-border-radius: var(--ui-rounded-left);
 
-	--tabs-border-radius: 0 10px 10px 0;
+	--tabs-border-radius: 0 var(--ui-rounded) var(--ui-rounded) 0;
 	--tabs-margin: 0px;
 
 	--bookmarks-margin: 0px var(--ui-spacing);
-	--bookmarks-border-radius: var(--ui-border-radius);
+	--bookmarks-border-radius: var(--ui-rounded);
 
 	--status-margin: 0 var(--ui-spacing) var(--ui-spacing);
-	--status-border-radius: var(--ui-border-radius);
+	--status-border-radius: var(--ui-rounded);
 }
 
 /* Title Bar 
@@ -68,17 +72,17 @@ Details: This design was created while using the Gradient theme
 	border: none;
 }
 #browser.address-bottom:not(.bookmark-bar-bottom):has( footer > div.toolbar) #main .mainbar .toolbar{
-	--address-border-radius: 10px 10px 0px 0px;
+	--address-border-radius: var(--ui-rounded-top);
 }
 #browser.address-bottom.bookmark-bar-bottom:has( footer > div.toolbar) #main .mainbar .toolbar,
 #browser.address-bottom.bookmark-bar-bottom.tabs-bottom #main .mainbar .toolbar{
 	--address-border-radius: 0px;
 }
 #browser.address-bottom.bookmark-bar-bottom #main .mainbar .toolbar{
-	--address-border-radius: 0px 0px 10px 10px;
+	--address-border-radius: var(--ui-rounded-bottom);
 }
 #browser.bookmark-bar-top:not(.address-bottom) #main .mainbar .toolbar{
-	--address-border-radius: 10px 10px 0px 0px;
+	--address-border-radius: var(--ui-rounded-top);
 }
 #browser.minimal-ui #main .mainbar{
 	margin: 0px;
@@ -109,11 +113,11 @@ Details: This design was created while using the Gradient theme
 	border-radius: var(--panel-icons-border-radius);
 }
 #main > .inner > #panels-container.right{
-	--panel-icons-border-radius: 0 10px 10px 0;
+	--panel-icons-border-radius: var(--ui-rounded-right);
 }
 #main > .inner > #panels-container.left:not(:has( + .tabbar-wrapper span.tabbar-wrapper)),
 #main > .inner > #panels-container.right:not(:has( + .tabbar-wrapper + #webview-container + span.tabbar-wrapper)){
-	--panel-icons-border-radius: 10px;
+	--panel-icons-border-radius: var(--ui-rounded);
 }
 #browser:not(.tabs-left) #main > .inner > #panels-container.left{
 	margin-right: 5px;
