@@ -3,24 +3,20 @@
 	▒▓  Minimal Vivaldi Browser CSS Mod  ▓▒
 
 Author: Shane Burns (https://github.com/shaneburns)
-Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
-	created with the Gradient theme (https://themes.vivaldi.net/themes/V6kJNYnzvWX);
-	all default themes and multiple custom themes have also been tested.
-	This was a personal project that I decided to share.  I hope you
-	enjoy it, and more so I hope it inspires you to create your own
-	customizations.  If you do, please share them with the community!
-
-	If you're curious how to start modding Vivaldi, check out
-	the Vivaldi forums (https://forum.vivaldi.net/category/52/modifications)
-	and the Vivaldi Wiki (https://forum.vivaldi.net/topic/10549/modding-vivaldi)
-	for more information. 
-	In short, to enable custom CSS:
-	- visit ** vivaldi://experiments and enabling "Allow for using CSS modifications"
-	- set the directory for your styles in Settings > Appearance > Custom UI Modifications
-	- create a css file, add some styles, and restart Vivaldi
-
-	Also, this link will allow you to open DevTools for the browser UI:
-	** vivaldi://inspect/#apps
+Mod Desc: Spacious, minimal, and clean UI for any ui layout.
+Details: This design was created while using the Gradient theme 
+	(https://themes.vivaldi.net/themes/V6kJNYnzvWX); though all default
+	themes and multiple custom themes have also been tested.
+	The inital design only accounted for the following settings:
+		- Address Bar Position: Top
+		- Tab Bar Position: Left
+		- Bookmark Bar Position: Bottom
+		- Status Bar: Showing
+		- Panels Position: Left
+	I have expanded the styles to account for (I think) all ui layouts. 
+	If you find any issues with ui layouts or themes, please feel free 
+	to create an issue on the GitHub repo.
+	Screenshots are highly encouraged!
 ///////////////////////////////////////////////////////////////////////*/
 
 :root{
@@ -204,6 +200,9 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 #browser footer{
 	margin: var(--status-margin);
 	border-radius: var(--status-border-radius);
+}
+#browser.minimal-ui footer{
+	--status-margin: 0px;
 }
 #browser.bookmark-bar-bottom footer,
 #browser.address-bottom footer,
