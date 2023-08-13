@@ -54,7 +54,7 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 /* Address Bar 
 ///////////////////////////////////////////////////////////////////////*/
 #browser #main .mainbar{
-	margin: 0px 5px;
+	margin: 0px var(--ui-spacing);
 }
 #browser.address-top #main .mainbar{
 	margin-top: var(--ui-spacing);
@@ -82,6 +82,7 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 #browser.minimal-ui #main .mainbar{
 	margin: 0px;
 }
+/* TODO: account for the different states i.e. bookmark-bar-top */
 #main .mainbar .toolbar .window-buttongroup{
 	border-radius: 10px;
 	overflow: hidden;
@@ -99,7 +100,7 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 /* Inner bits 
 ///////////////////////////////////////////////////////////////////////*/
 #browser:not(.fullscreen) #main > .inner{
-	margin: 5px;
+	margin: var(--ui-spacing);
 }
 
 /* Panel */
@@ -138,11 +139,11 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 	border-radius: var(--tabs-border-radius);
 }
 #browser.tabs-left #main > .inner > .tabbar-wrapper{
-	--tabs-margin: 0px 5px 0px 0px;
+	--tabs-margin: 0px var(--ui-spacing) 0px 0px;
 }
 #browser.tabs-right #main > .inner > span.tabbar-wrapper{
 	--tabs-border-radius: 10px 0 0 10px;
-	--tabs-margin: 0px 0px 0px 5px;
+	--tabs-margin: 0px 0px 0px var(--ui-spacing);
 }
 #browser.tabs-left:has( > #main > .inner > #panels-container.right) #main > .inner > div.tabbar-wrapper,
 #browser.tabs-right:has( > #main > .inner > #panels-container.left) #main > .inner > span.tabbar-wrapper{
@@ -189,10 +190,10 @@ Desc: Spacious, minimal, and clean UI for any ui layout.  This design was
 	--bookmarks-border-radius: 10px;
 }
 #browser.bookmark-bar-top.address-bottom .bookmark-bar{
-	--bookmarks-margin: 5px 5px 0px;
+	--bookmarks-margin: var(--ui-spacing) var(--ui-spacing) 0px;
 }
 #browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
-	--bookmarks-margin: 0px 5px 5px;
+	--bookmarks-margin: 0px var(--ui-spacing) var(--ui-spacing);
 }
 #browser.minimal-ui .bookmark-bar{
 	--bookmarks-margin: 0px;
