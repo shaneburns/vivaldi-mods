@@ -52,24 +52,42 @@ Details: This design was created while using the Gradient theme
 
 /* Title Bar 
 ///////////////////////////////////////////////////////////////////////*/
-#header{
-	box-shadow: none;
+#browser:not(.is-settingspage) > #header{
+	margin: 0px var(--ui-spacing);
+	border-radius: var(--ui-rounded-top);
+	box-shadow: none !important;
+	overflow: hidden;
 }
-
+#browser#browser:not(.is-settingspage) > #header:has( > #titlebar){
+	margin-top: var(--ui-spacing);
+}
+#browser:not(.address-top,.bookmark-bar-top,.is-settingspage) > #header{
+	border-radius: var(--ui-rounded);
+}
+#browser.minimal-ui > #header,
+#browser.fullscreen > #header{
+	margin: 0px;
+}
 /* Address Bar 
 ///////////////////////////////////////////////////////////////////////*/
 #browser #main .mainbar{
 	margin: 0px var(--ui-spacing);
 }
-#browser.address-top #main .mainbar{
+#browser #main .mainbar .toolbar{
+	border-radius: var(--address-border-radius);
+	border: none;
+}
+#browser.address-top.tabs-top #main .mainbar .toolbar{
+	--address-border-radius: var(--ui-rounded-bottom);
+}
+#browser.address-top.bookmark-bar-top.tabs-top #main .mainbar .toolbar{
+	border-radius: 0px;
+}
+#browser.address-top:not(.tabs-top) #main .mainbar{
 	margin-top: var(--ui-spacing);
 }
 #browser.address-bottom:not(.tabs-bottom,:has( footer > div.toolbar)) #main .mainbar{
 	margin-bottom: var(--ui-spacing);
-}
-#main .mainbar .toolbar{
-	border-radius: var(--address-border-radius);
-	border: none;
 }
 #browser.address-bottom:not(.bookmark-bar-bottom):has( footer > div.toolbar) #main .mainbar .toolbar{
 	--address-border-radius: var(--ui-rounded-top);
@@ -92,6 +110,9 @@ Details: This design was created while using the Gradient theme
 	border-radius: var(--ui-rounded);
 	overflow: hidden;
 }
+/* TODO: account for extensions group when #header has #titlebar */
+
+
 #main:has(.mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown) > .inner > #webview-container{
 	--webview-opacity: .2;
 }
@@ -187,18 +208,17 @@ Details: This design was created while using the Gradient theme
 #browser.bookmark-bar-top .bookmark-bar{
 	--bookmarks-border-radius: var(--ui-rounded-bottom);
 }
+#browser.bookmark-bar-top:not(.address-top) .bookmark-bar,
+#browser.bookmark-bar-top.tabs-top:not(.address-top) .bookmark-bar{
+	--bookmarks-margin: 0px var(--ui-spacing);
+	--bookmarks-border-radius: var(--ui-rounded-bottom);
+}
 #browser.bookmark-bar-bottom .bookmark-bar{
 	--bookmarks-border-radius: var(--ui-rounded-top);
 }
-#browser.bookmark-bar-top.address-bottom .bookmark-bar,
-#browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
-	--bookmarks-border-radius: var(--ui-rounded);
-}
-#browser.bookmark-bar-top.address-bottom .bookmark-bar{
-	--bookmarks-margin: var(--ui-spacing) var(--ui-spacing) 0px;
-}
 #browser.bookmark-bar-bottom.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar{
 	--bookmarks-margin: 0px var(--ui-spacing) var(--ui-spacing);
+	--bookmarks-border-radius: var(--ui-rounded);
 }
 #browser.minimal-ui .bookmark-bar{
 	--bookmarks-margin: 0px;
@@ -227,22 +247,21 @@ Details: This design was created while using the Gradient theme
 /* Misc. Aesthetics
 ///////////////////////////////////////////////////////////////////////*/
 /* Passive State */
+#browser:not(.tabs-top) > #header,
 #browser .mainbar,
 #browser .bookmark-bar,
-#browser:not(.tabs-bottom) footer{ /*  .toolbar > :not(.StatusInfo) */
+#browser:not(.tabs-bottom) footer{
 	opacity: var(--ui-opacity);
 	transition: opacity 1.38s ease-in-out;
 }
-/* #browser footer:hover{
-	background: initial;
-} */
 
 /* Hover State */
+#browser:not(.tabs-top) > #header:hover,
 #browser .mainbar:hover,
 #browser .bookmark-bar:hover,
-#browser .mainbar:has( > .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .observer .UrlField #urlFieldInput:focus),
-#browser .mainbar:has( > .toolbar .UrlBar-SearchField .vivaldi-searchfield:focus),
-#browser footer:hover /* .toolbar:hover > * */{
+#browser .mainbar:has( > .toolbar .UrlBar-SearchField .vivaldi-searchfield:focus,
+> .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .observer .UrlField #urlFieldInput:focus),
+#browser footer:hover{
 	--ui-opacity: 1;
 }
 
