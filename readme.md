@@ -15,5 +15,5 @@ In short, to enable modifications in Vivaldi:
 - create a css file of your own or try some of the styles I've made (more details in files)
 - restart Vivaldi
 
-Also, this link will allow you to open DevTools for the browser UI:
+Also, [this link](vivaldi://inspect/#apps) will allow you to open DevTools for the browser UI:
 *[vivaldi://inspect/#apps](vivaldi://inspect/#apps)*
