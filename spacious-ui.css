@@ -71,6 +71,7 @@ Details: This design was created while using the Gradient theme
 /* Address Bar 
 ///////////////////////////////////////////////////////////////////////*/
 #browser #main .mainbar{
+	border-radius: var(--address-border-radius);
 	margin: 0px var(--ui-spacing);
 }
 #browser #main .mainbar .toolbar{
@@ -130,14 +131,14 @@ Details: This design was created while using the Gradient theme
 }
 
 /* Panel */
-#main > .inner > #panels-container{
+#main > .inner > #panels-container, #main > .inner > #panels-container #panels{
 	border-radius: var(--panel-icons-border-radius);
 }
 #main > .inner > #panels-container.right{
 	--panel-icons-border-radius: var(--ui-rounded-right);
 }
-#main > .inner > #panels-container.left:not(:has( + .tabbar-wrapper span.tabbar-wrapper)),
-#main > .inner > #panels-container.right:not(:has( + .tabbar-wrapper + #webview-container + span.tabbar-wrapper)){
+#main > .inner > #panels-container.left:not(:has( + .tabbar-wrapper div.tabbar-wrapper)),
+#main > .inner > #panels-container.right:not(:has( + .tabbar-wrapper + #webview-container + div.tabbar-wrapper)){
 	--panel-icons-border-radius: var(--ui-rounded);
 }
 #browser:not(.tabs-left) #main > .inner > #panels-container.left{
