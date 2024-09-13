@@ -73,6 +73,7 @@ Details: This design was created while using the Gradient theme
 #browser #main .mainbar{
 	border-radius: var(--address-border-radius);
 	margin: 0px var(--ui-spacing);
+	z-index: 10;
 }
 #browser #main .mainbar .toolbar{
 	border-radius: var(--address-border-radius);
