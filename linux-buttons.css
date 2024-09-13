@@ -1,0 +1,62 @@
+/*
+	Mac style window buttons
+*/
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar{
+	top: auto;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close{
+	position: relative;
+	width: 20px;
+	margin-right: var(--ui-spacing);
+	background: none;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: .24s ease-in-out;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:before,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:before,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: inherit;
+	scale: .5;
+	transition: .23s ease-in-out;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize svg,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize svg,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close svg{
+	filter: drop-shadow(0px 0px 2px black) !important;
+	mix-blend-mode: normal;
+	opacity: 0;
+	transition: .18s ease .05s;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:before{
+	background: var(--ui-window-minimize) !important;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:before{
+	background: var(--ui-window-maximize) !important;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:before{
+	background: var(--ui-window-close) !important;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover{
+	opacity: 1;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover:before,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover:before,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover:before{
+	scale: 1;
+}
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover svg,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover svg,
+#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover svg{
+	opacity: 1;
+}

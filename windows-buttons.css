@@ -1,0 +1,69 @@
+/*
+	Windows window buttons styles
+*/
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close{
+	position: relative;
+	background: none;
+	cursor: pointer;
+	margin: 0;
+}
+/*
+	width: 20px;
+	margin-right: var(--ui-spacing);
+	opacity: 0.5;
+	transition: .24s ease-in-out;
+}
+*/
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:before,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:before,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: inherit;
+	/* scale: .5; */
+	transition: .23s ease-in-out;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize svg,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize svg,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close svg{
+	filter: drop-shadow(0px 0px 2px black) !important;
+	mix-blend-mode: normal;
+	opacity: 0;
+	transition: .18s ease .05s;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:before{
+	background: var(--ui-window-minimize) !important;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:before{
+	background: var(--ui-window-maximize) !important;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:before{
+	background: var(--ui-window-close) !important;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover{
+	opacity: 1;
+}
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover svg,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover svg,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover svg{
+	opacity: 1;
+}
+
+@keyframes scanline{
+	
+}
+/*
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover:before,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover:before,
+#browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover:before{
+	scale: 1;
+}
+*/

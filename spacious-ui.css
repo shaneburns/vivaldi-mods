@@ -33,6 +33,10 @@ Details: This design was created while using the Gradient theme
 	--ui-rounded-left: var(--ui-rounded) 0 0 var(--ui-rounded);
 	--ui-rounded-right: 0 var(--ui-rounded) var(--ui-rounded) 0;
 
+	--ui-window-minimize: #aa772b;
+	--ui-window-maximize: #40a57e;
+	--ui-window-close: #d34444;
+
 	--webview-opacity: 1;
 	--address-border-radius: var(--ui-rounded);
 
