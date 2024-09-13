@@ -1,13 +1,20 @@
 /*
 	Mac style window buttons
 */
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar{
-	top: auto;
-	height: inherit
+#browser.linux #titlebar{
+	height: 100%;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close{
+#browser.linux .toolbar .window-buttongroup,
+#browser.linux #titlebar .window-buttongroup{
+	top: auto;
+	height: inherit;
+}
+#browser.linux .toolbar .window-buttongroup button.window-minimize,
+#browser.linux .toolbar .window-buttongroup button.window-maximize,
+#browser.linux .toolbar .window-buttongroup button.window-close,
+#browser.linux #titlebar .window-buttongroup button.window-minimize,
+#browser.linux #titlebar .window-buttongroup button.window-maximize,
+#browser.linux #titlebar .window-buttongroup button.window-close{
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -21,33 +28,45 @@
 	opacity: 0.5;
 	transition: padding .18s ease-in-out, opacity .24s ease-in-out;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize{
+#browser.linux .toolbar .window-buttongroup button.window-minimize,
+#browser.linux #titlebar .window-buttongroup button.window-minimize{
 	background: var(--ui-window-minimize) !important;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize{
+#browser.linux .toolbar .window-buttongroup button.window-maximize,
+#browser.linux #titlebar .window-buttongroup button.window-maximize{
 	background: var(--ui-window-maximize) !important;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close{
+#browser.linux .toolbar .window-buttongroup button.window-close,
+#browser.linux #titlebar .window-buttongroup button.window-close{
 	background: var(--ui-window-close) !important;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize svg,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize svg,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close svg{
+#browser.linux .toolbar .window-buttongroup button.window-minimize svg,
+#browser.linux .toolbar .window-buttongroup button.window-maximize svg,
+#browser.linux .toolbar .window-buttongroup button.window-close svg,
+#browser.linux #titlebar .window-buttongroup button.window-minimize svg,
+#browser.linux #titlebar .window-buttongroup button.window-maximize svg,
+#browser.linux #titlebar .window-buttongroup button.window-close svg{
 	filter: drop-shadow(0px 0px 2px black) !important;
 	mix-blend-mode: normal;
 	opacity: 0;
 	transform: translateX(-1px);
 	transition: .18s ease .05s;
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover{
+#browser.linux .toolbar .window-buttongroup button.window-minimize:hover,
+#browser.linux .toolbar .window-buttongroup button.window-maximize:hover,
+#browser.linux .toolbar .window-buttongroup button.window-close:hover,
+#browser.linux #titlebar .window-buttongroup button.window-minimize:hover,
+#browser.linux #titlebar .window-buttongroup button.window-maximize:hover,
+#browser.linux #titlebar .window-buttongroup button.window-close:hover{
 	opacity: 1;
 	padding: 0 1.25rem;
 	transition: padding .18s ease-in-out, opacity .24s ease-in-out
 }
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:hover svg,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:hover svg,
-#browser.linux #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:hover svg{
+#browser.linux .toolbar .window-buttongroup button.window-minimize:hover svg,
+#browser.linux .toolbar .window-buttongroup button.window-maximize:hover svg,
+#browser.linux .toolbar .window-buttongroup button.window-close:hover svg,
+#browser.linux #titlebar .window-buttongroup button.window-minimize:hover svg,
+#browser.linux #titlebar .window-buttongroup button.window-maximize:hover svg,
+#browser.linux #titlebar .window-buttongroup button.window-close:hover svg{
 	opacity: 1;
 }

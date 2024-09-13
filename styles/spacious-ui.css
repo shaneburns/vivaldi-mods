@@ -112,7 +112,8 @@ Details: This design was created while using the Gradient theme
 	margin: 0px;
 }
 /* TODO: account for the different states i.e. bookmark-bar-top */
-#main .mainbar .toolbar .window-buttongroup{
+#browser #main .mainbar .toolbar .window-buttongroup,
+#browser #titlebar .window-buttongroup{
 	border-radius: var(--ui-rounded);
 	overflow: hidden;
 }
