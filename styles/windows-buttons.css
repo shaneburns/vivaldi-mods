@@ -8,14 +8,9 @@
 	background: none;
 	cursor: pointer;
 	margin: 0;
-}
-/*
-	width: 20px;
-	margin-right: var(--ui-spacing);
 	opacity: 0.5;
 	transition: .24s ease-in-out;
 }
-*/
 #browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-minimize:before,
 #browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-maximize:before,
 #browser.win #main .mainbar .toolbar .window-buttongroup.on-mainbar button.window-close:before{
