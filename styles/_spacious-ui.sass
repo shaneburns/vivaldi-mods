@@ -1,0 +1,240 @@
+/* ///////////////////////////////////////////////////////////////////////
+
+	▒▓  Main Styles  ▓▒
+
+	Author: Shane Burns (https://github.com/shaneburns)
+
+	Sections
+		- Vars
+		- Title Bar
+		- Address Bar
+		- Inner
+			* Panel
+			* Tabbar
+			* Webview
+			* Bookmarks
+		- Footer / Status bar 
+		- Misc. Aesthetics
+			* Passive State
+			* Hover State
+		
+///////////////////////////////////////////////////////////////////////*/
+
+/* Vars 
+///////////////////////////////////////////////////////////////////////*/
+:root
+	--ui-opacity: .65
+	--ui-spacing: 5px
+	--ui-rounded: 10px
+	--ui-rounded-top: var(--ui-rounded) var(--ui-rounded) 0 0
+	--ui-rounded-bottom: 0 0 var(--ui-rounded) var(--ui-rounded)
+	--ui-rounded-left: var(--ui-rounded) 0 0 var(--ui-rounded)
+	--ui-rounded-right: 0 var(--ui-rounded) var(--ui-rounded) 0
+
+	--ui-window-minimize: #aa772b
+	--ui-window-maximize: #40a57e
+	--ui-window-close: #d34444
+
+	--webview-opacity: 1
+	--address-border-radius: var(--ui-rounded)
+
+	--panel-border-radius: var(--ui-rounded-right)
+	--panel-box-shadow: 75px 0 50px -50px #000000
+	--panel-icons-border-radius: var(--ui-rounded-left)
+
+	--tabs-border-radius: 0 var(--ui-rounded) var(--ui-rounded) 0
+	--tabs-margin: 0px
+
+	--bookmarks-margin: 0px var(--ui-spacing)
+	--bookmarks-border-radius: var(--ui-rounded)
+
+	--status-margin: 0 var(--ui-spacing) var(--ui-spacing)
+	--status-border-radius: var(--ui-rounded)
+
+
+
+#browser
+	/* Title Bar 
+	///////////////////////////////////////////////////////////////////////*/
+	&:not(.is-settingspage) > #header
+		margin: 0px var(--ui-spacing)
+		border-radius: var(--ui-rounded-top)
+		box-shadow: none !important
+		overflow: hidden
+		&:has( > #titlebar)
+			margin-top: var(--ui-spacing)
+
+	&:not(.address-top,.bookmark-bar-top,.is-settingspage) > #header
+		border-radius: var(--ui-rounded)
+
+	&.minimal-ui > #header,
+	&.fullscreen > #header
+		margin: 0px
+
+	/* Address Bar 
+	///////////////////////////////////////////////////////////////////////*/
+	#main .mainbar
+		border-radius: var(--address-border-radius)
+		margin: 0px var(--ui-spacing)
+		z-index: 10
+		.toolbar
+			border-radius: var(--address-border-radius)
+			border: none
+			.UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown
+				box-shadow: 0 75px 50px -50px #000000
+
+	&.address-top
+		&.tabs-top 
+			#main .mainbar .toolbar
+				--address-border-radius: var(--ui-rounded-bottom)
+			&.bookmark-bar-top #main .mainbar .toolbar
+				border-radius: 0px
+		&:not(.tabs-top) #main .mainbar
+			margin-top: var(--ui-spacing)
+
+	&.address-bottom
+		#main .mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown
+			box-shadow: 0 -75px 50px -50px #000000
+		&:not(.tabs-bottom,:has( footer > div.toolbar)) #main .mainbar
+			margin-bottom: var(--ui-spacing)
+		&:not(.bookmark-bar-bottom):has( footer > div.toolbar) #main .mainbar .toolbar
+			--address-border-radius: var(--ui-rounded-top)
+		&.bookmark-bar-bottom
+			&:has( footer > div.toolbar) #main .mainbar .toolbar,
+			&.tabs-bottom #main .mainbar .toolbar
+				--address-border-radius: 0px
+			#main .mainbar .toolbar
+				--address-border-radius: var(--ui-rounded-bottom)
+
+	&.bookmark-bar-top:not(.address-bottom) #main .mainbar .toolbar
+		--address-border-radius: var(--ui-rounded-top)
+	&.minimal-ui #main .mainbar
+		margin: 0px
+	/* TODO: account for the different states i.e. bookmark-bar-top */
+	#main .mainbar .toolbar .window-buttongroup,
+	#titlebar .window-buttongroup
+		border-radius: var(--ui-rounded)
+		overflow: hidden
+	/* TODO: account for extensions group when #header has #titlebar */
+
+	// URL bar results are open
+	#main:has(.mainbar .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .UrlField + .OmniDropdown) > .inner > #webview-container
+		--webview-opacity: .2
+
+	/* Inner bits 
+	///////////////////////////////////////////////////////////////////////*/
+	&:not(.fullscreen) #main > .inner
+		margin: var(--ui-spacing)
+
+	/* Panel */
+	&:not(.tabs-left) #main > .inner > #panels-container.left
+		margin-right: 5px
+	&:not(.tabs-right) #main > .inner > #panels-container.right
+		margin-left: 5px
+	#main > .inner > #panels-container
+		&, & #panels
+			border-radius: var(--panel-icons-border-radius)
+		&.right
+			--panel-icons-border-radius: var(--ui-rounded-right)
+	
+		&.left:not(:has( + .tabbar-wrapper div.tabbar-wrapper)),
+		&.right
+			&:not(:has( + .tabbar-wrapper + #webview-container + div.tabbar-wrapper))
+				--panel-icons-border-radius: var(--ui-rounded)
+			&:not(.icons) .panel-group
+				--panel-box-shadow: -75px 0 50px -50px #000000
+				--panel-border-radius: var(--ui-rounded-left)
+		&:not(.icons)
+			--panel-icons-border-radius: 0px !important
+			.panel-group
+				box-shadow: var(--panel-box-shadow)
+				border-radius: var(--panel-border-radius)
+
+	/* Tabbar */
+	#main > .inner > .tabbar-wrapper
+		overflow: hidden
+		margin: var(--tabs-margin)
+		border-radius: var(--tabs-border-radius)
+	&.tabs-left #main > .inner > .tabbar-wrapper
+		--tabs-margin: 0px var(--ui-spacing) 0px 0px
+	&.tabs-right #main > .inner > span.tabbar-wrapper
+		--tabs-border-radius: var(--ui-rounded-left)
+		--tabs-margin: 0px 0px 0px var(--ui-spacing)
+	&.tabs-left:has( > #main > .inner > #panels-container.right) #main > .inner > div.tabbar-wrapper,
+	&.tabs-right:has( > #main > .inner > #panels-container.left) #main > .inner > span.tabbar-wrapper
+		--tabs-border-radius: var(--ui-rounded)
+	&.tabs-right #main > .inner > div.tabbar-wrapper,
+	&.minimal-ui #main > .inner > .tabbar-wrapper
+		--tabs-margin: 0px
+
+	/* Webview Container */
+	#webview-container
+		border-radius: var(--ui-rounded)
+		overflow: hidden
+		opacity: var(--webview-opacity)
+		transition: opacity .69s ease-in-out
+	&.fullscreen #webview-container
+		border-radius: 0px
+	#main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container
+		--webview-opacity: .2
+	&.minimal-ui #main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container
+		--webview-opacity: 1
+
+	/* Bookmarks bar */
+	.bookmark-bar
+		margin: var(--bookmarks-margin)
+		border: none
+		border-radius: var(--bookmarks-border-radius)
+		box-shadow: none
+		overflow: hidden
+	&.bookmark-bar-top
+		&:not(.address-top) .bookmark-bar,
+		&.tabs-top:not(.address-top) .bookmark-bar
+			--bookmarks-margin: 0px var(--ui-spacing)
+			--bookmarks-border-radius: var(--ui-rounded-bottom)
+		.bookmark-bar
+			--bookmarks-border-radius: var(--ui-rounded-bottom)
+	&.bookmark-bar-bottom 
+		.bookmark-bar
+			--bookmarks-border-radius: var(--ui-rounded-top)
+		&.address-top:not(.tabs-bottom,:has( footer > div.toolbar)) .bookmark-bar
+			--bookmarks-margin: 0px var(--ui-spacing) var(--ui-spacing)
+			--bookmarks-border-radius: var(--ui-rounded)
+	&.minimal-ui .bookmark-bar
+		--bookmarks-margin: 0px
+
+	/* Footer / Status bar 
+	///////////////////////////////////////////////////////////////////////*/
+	footer
+		margin: var(--status-margin)
+		border-radius: var(--status-border-radius)
+	&.bookmark-bar-bottom, &.address-bottom,
+	&.tabs-bottom:has(.bookmark-bar-bottom,.address-bottom)
+		footer
+			--status-border-radius: var(--ui-rounded-bottom)
+	&:not(.tabs-bottom) > footer:after
+		display: none
+	&.minimal-ui footer
+		--status-margin: 0px
+
+	/* Misc. Aesthetics
+	///////////////////////////////////////////////////////////////////////*/
+	#tabs-subcontainer
+		box-shadow: none
+	/* Passive State */
+	&:not(.tabs-top) > #header,
+	.mainbar,
+	.bookmark-bar,
+	&:not(.tabs-bottom) footer
+		opacity: var(--ui-opacity)
+		transition: opacity 1.38s ease-in-out
+
+	/* Hover State */
+	&:not(.tabs-top) > #header:hover,
+	.mainbar:hover,
+	.bookmark-bar:hover,
+	.mainbar:has( > .toolbar .UrlBar-SearchField .vivaldi-searchfield:focus,
+		> .toolbar .UrlBar-AddressField .UrlBar-UrlFieldWrapper .observer .UrlField #urlFieldInput:focus),
+	footer:hover
+		--ui-opacity: 1
+	
