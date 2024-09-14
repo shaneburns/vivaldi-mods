@@ -3,7 +3,7 @@
 ## Open | Minimal | Clean
 
 This is a personal project that I decided to share.  I wanted to 
-be able to see the window bakground image more often, and whala.  I 
+be able to see the window background image more often, and voila.  I 
 hope you enjoy it, and more so I hope it inspires you to create your 
 own customizations.  If you do, please share them with the community!
 
@@ -30,7 +30,7 @@ Also, [this link](vivaldi://inspect/#apps) will allow you to open DevTools for t
 This design was created while using Vivaldi on Windows with the [Gradient theme](https://themes.vivaldi.net/themes/V6kJNYnzvWX);
 though all default themes and multiple custom themes have also been tested.
 
-The inital design only accounted for the following settings:
+The initial design only accounted for the following settings:
 - Address Bar Position: Top
 - Tab Bar Position: Left
 - Bookmark Bar Position: Bottom
