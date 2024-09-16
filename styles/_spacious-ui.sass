@@ -23,9 +23,11 @@
 /* Vars 
 ///////////////////////////////////////////////////////////////////////*/
 :root
+	animation: expand .8s ease-in 3s 1 forwards
+	--ui-space-amount: 5px
+	--ui-round-amount: 10px
+
 	--ui-opacity: .65
-	--ui-spacing: 5px
-	--ui-rounded: 10px
 	--ui-rounded-top: var(--ui-rounded) var(--ui-rounded) 0 0
 	--ui-rounded-bottom: 0 0 var(--ui-rounded) var(--ui-rounded)
 	--ui-rounded-left: var(--ui-rounded) 0 0 var(--ui-rounded)
@@ -50,7 +52,18 @@
 
 	--status-margin: 0 var(--ui-spacing) var(--ui-spacing)
 	--status-border-radius: var(--ui-rounded)
+	
+@property --ui-spacing
+	syntax: "<length>"
+	inherits: true
+	initial-value: 0px
+@property --ui-rounded
+	syntax: "<length>"
+	inherits: true
+	initial-value: 0px
 
+// #browser *
+// 	animation: expand 1.8s ease-in 3s 1 forwards
 
 
 #browser
