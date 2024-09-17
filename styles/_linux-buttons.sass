@@ -1,12 +1,7 @@
 /*//////////////////////////////////////////////////////////////
 	
 	Linux window control buttons styles
-
-	Vars used from spacious_ui
-		--ui-window-minimize
-		--ui-window-maximize
-		--ui-window-close
-
+	
 //////////////////////////////////////////////////////////////*/
 
 #browser.linux 
@@ -16,33 +11,14 @@
 		top: auto
 		height: inherit
 		button.window-minimize, button.window-maximize, button.window-close
-			position: relative
 			display: flex
 			flex-direction: column
 			align-items: center
 			justify-content: center
 			height: 100%
-			margin: 0
-			background: none
 			border-radius: 0
-			cursor: pointer
-			opacity: 0.5
 			transition: padding .18s ease-in-out, opacity .24s ease-in-out
 			svg
-				filter: drop-shadow(0px 0px 2px black) !important
-				mix-blend-mode: normal
-				opacity: 0
 				transform: translateX(-1px)
-				transition: .18s ease .05s
 			&:hover
-				opacity: 1
 				padding: 0 1.25rem
-				transition: padding .18s ease-in-out, opacity .24s ease-in-out
-				svg
-					opacity: 1
-		button.window-minimize
-			background: var(--ui-window-minimize) !important
-		button.window-maximize
-			background: var(--ui-window-maximize) !important
-		button.window-close
-			background: var(--ui-window-close) !important

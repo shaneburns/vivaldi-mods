@@ -80,6 +80,36 @@
 	&:not(.address-top,.bookmark-bar-top,.is-settingspage) > #header
 		border-radius: var(--ui-rounded)
 
+	.toolbar .window-buttongroup, #titlebar .window-buttongroup
+		top: auto
+		height: inherit
+		button.window-minimize, button.window-maximize, button.window-close
+			position: relative
+			margin: 0
+			background: none
+			cursor: pointer
+			opacity: 0.5
+			transition: .24s ease-in-out
+			@include scanline
+			svg
+				filter: drop-shadow(0px 0px 2px black) !important
+				mix-blend-mode: normal
+				opacity: 0
+				transition: .18s ease .05s
+			&:hover
+				opacity: 1
+				& svg
+					opacity: 1
+		button.window-minimize
+			background: var(--ui-window-minimize) !important
+			@include scanline-delay
+		button.window-maximize
+			background: var(--ui-window-maximize) !important
+			@include scanline-delay
+		button.window-close
+			background: var(--ui-window-close) !important
+			@include scanline-delay
+
 	&.minimal-ui > #header,
 	&.fullscreen > #header
 		margin: 0px

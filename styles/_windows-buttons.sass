@@ -1,41 +1,13 @@
 /*//////////////////////////////////////////////////////////////
 	
 	Windows window control buttons styles
-
-	Vars used from spacious_ui
-		--ui-window-minimize
-		--ui-window-maximize
-		--ui-window-close
-
+	
 //////////////////////////////////////////////////////////////*/
 
 #browser.win 
 	#main .mainbar .toolbar .window-buttongroup.on-mainbar,
 	#titlebar .window-buttongroup
 		button.window-minimize, button.window-maximize, button.window-close
-			position: relative
 			width: 40px
-			background: none
-			cursor: pointer
-			margin: 0
-			opacity: 0.5
-			transition: .24s ease-in-out
-			svg
-				filter: drop-shadow(0px 0px 2px black) !important
-				mix-blend-mode: normal
-				opacity: 0
-				transition: .18s ease .05s
 			&:hover
 				width: 45px
-				opacity: 1
-				& svg
-					opacity: 1
-		button.window-minimize
-			background: var(--ui-window-minimize) !important
-		button.window-maximize
-			background: var(--ui-window-maximize) !important
-		button.window-close
-			background: var(--ui-window-close) !important
-
-@keyframes scanline
-	

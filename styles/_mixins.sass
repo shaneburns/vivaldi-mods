@@ -1,0 +1,15 @@
+// scanline effect styles
+@mixin scanline
+	&:before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		animation: scanline random(10)*.01s linear infinite 
+		background: repeat 0 33% / 100% 200% linear-gradient( 0deg, #f0f0f027 2%, #00000000 3%, #00000000 97%, #f0f0f027 98%)
+// optional, reusable, and dynamic delay setting
+@mixin scanline-delay
+	&:before
+		animation-delay: random()+0s

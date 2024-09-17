@@ -1,3 +1,4 @@
+// startup animation that expands the space between UI elements
 @keyframes expand
 	0%
 		--ui-spacing: 0px
@@ -5,3 +6,9 @@
 	100%
 		--ui-spacing: var(--ui-space-amount)
 		--ui-rounded: var(--ui-round-amount)
+
+// scanline effect 
+// used in conjunction with the `scanline` and/or `scanline-delay` mixins
+@keyframes scanline
+	100%
+		background-position: 0 233%
