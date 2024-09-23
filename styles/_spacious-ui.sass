@@ -200,6 +200,7 @@
 		border-radius: var(--tabs-border-radius)
 	&.tabs-left #main > .inner > .tabbar-wrapper
 		--tabs-margin: 0px var(--ui-spacing) 0px 0px
+		@include animation-block-vertical
 	&.tabs-right #main > .inner > span.tabbar-wrapper
 		--tabs-border-radius: var(--ui-rounded-left)
 		--tabs-margin: 0px 0px 0px var(--ui-spacing)
@@ -218,7 +219,7 @@
 		transition: opacity .69s ease-in-out
 	&.fullscreen #webview-container
 		border-radius: 0px
-	#main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container
+	#main > .inner > #panels-container:not(.minimized) + .tabbar-wrapper + #webview-container
 		--webview-opacity: .2
 	&.minimal-ui #main > .inner > #panels-container:not(.icons) + .tabbar-wrapper + #webview-container
 		--webview-opacity: 1

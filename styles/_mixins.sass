@@ -13,3 +13,49 @@
 @mixin scanline-delay
 	&:before
 		animation-delay: random()+0s
+
+
+// Stars and Lines animation
+@mixin animation-block-vertical
+	#tabs-tabbar-container #tabs-container
+		z-index: 1
+	$max: 70
+	#animation-block
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		overflow: hidden
+		opacity: .5
+		mix-blend-mode: color-dodge
+		@include scanline
+		.star
+			position: absolute
+			aspect-ratio: 1
+			background: white
+			border-radius: 50%
+			@for $i from 1 through $max
+				&:nth-child(#{$i})
+					width: random(5)+3px
+					left: random(100)+0%
+					top: random(100)+0%
+					animation: twinkle random(5)+random()+0s ease-in-out infinite
+		.line
+			position: absolute
+			background: white
+			@for $i from 1 through $max
+				$r: random(45)*-1deg
+				$w: random(100)
+				$m: 100 * calc(100 / $w)
+				&:nth-child(#{$i})
+					width: $w+0%
+					height: random(3)+0px
+					top: random(100)+0%
+					opacity: random()
+					transform: rotate($r) translateX(-1% * random(floor($m)) - ($m))
+					animation: stream#{$i} random(15)+0s ease-in-out random(5)+0s infinite
+				@keyframes stream#{$i}
+					100%
+						transform: rotate($r) translateX($m+$m+0%)
+
