@@ -14,6 +14,8 @@ function insertAnimationBlock(){
 		}
 
 		tabbar.appendChild(background);
+	}else if(!animation_block){
+		setTimeout(insertAnimationBlock, 200);
 	}
 }
 
